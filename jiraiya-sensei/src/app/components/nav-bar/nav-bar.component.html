@@ -1,1 +1,26 @@
-<p>nav-bar works!</p>
+<div class="h-screen mx-5 flex justify-center items-center">
+  <div
+    class="bg-semiDarkBlue rounded-xl p-8 h-[95%] flex flex-col justify-between"
+  >
+    <div>
+      <img src="../../../assets/logo.svg" alt="logo" />
+    </div>
+    <div class="flex flex-col gap-6">
+      @for(nav of navItems; track nav.name){
+
+      <a
+        [routerLink]="nav.location"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+      >
+        <img [src]="nav.img" alt="logo" class="text-pureWhite" />
+      </a>
+      }
+    </div>
+    <div class="hidden xl:flex"></div>
+    <div class="hidden xl:flex"></div>
+    <div class="">
+      <img src="../../../assets/logo.svg" alt="logo" />
+    </div>
+  </div>
+</div>

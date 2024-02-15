@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-movies',
   standalone: true,
-  imports: [],
+  imports: [NavBarComponent],
   templateUrl: './movies.component.html',
-  styleUrl: './movies.component.css'
+  styleUrl: './movies.component.css',
 })
-export class MoviesComponent {
-
-}
+export class MoviesComponent {}
