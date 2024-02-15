@@ -1,10 +1,12 @@
 <div
-  class="bg-darkBlue flex min-h-screen w-screen justify-center items-center text-pureWhite font-outfit"
+  class="bg-darkBlue flex min-h-screen w-screen justify-center items-center md:items-start md:pt-32 xl:items-center xl:pt-0 text-pureWhite font-outfit"
 >
-  <div class="flex flex-col items-center gap-16 w-3/12">
+  <div
+    class="flex flex-col items-center gap-16 w-11/12 md:w-7/12 lg:w-7/12 xl:w-3/12"
+  >
     <img src="../../../assets/logo.svg" alt="logo" />
     <div class="px-7 py-8 bg-semiDarkBlue rounded-lg w-full">
-      <h2 class="text-xl font-light pb-7">Login</h2>
+      <h2 class="text-xl font-light pb-7">Sign Up</h2>
       <div
         class="flex justify-between p-3 border-b border-b-pureWhite text-base"
       >
@@ -34,16 +36,22 @@
         <div class="text-redy hidden">Can't be empty</div>
       </div>
 
-      <div
-        class="rounded-md w-full text-center text-base text-white font-light bg-redy hover:bg-pureWhite hover:text-semiDarkBlue hover:cursor-pointer py-4 mt-6"
+      <a
+        routerLink="/home"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
       >
-        Create an account
-      </div>
+        <div
+          class="rounded-md w-full text-center text-base text-white font-light bg-redy hover:bg-pureWhite hover:text-semiDarkBlue hover:cursor-pointer py-4 mt-6"
+        >
+          Create an account
+        </div>
+      </a>
 
       <div
         class="flex justify-center gap-1 w-full text-center text-base text-pureWhite font-lightpy-4 mt-6"
       >
-        Don't have an account?
+        Already have an account?
         <div class="text-redy hover:underline hover:cursor-pointer">
           <a
             routerLink="/"
