@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { navItems } from '../../Interface/navItems';
+import { NavItems } from '../../Interface/navItems';
 import { CommonModule, NgClass } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrl: './nav-bar.component.css',
 })
 export class NavBarComponent {
-  navItems: navItems[] = [
+  navItems: NavItems[] = [
     {
       name: 'home',
       location: '../home',
