@@ -37,5 +37,20 @@ export class NavBarComponent {
   isCurrentLocation(location: string): boolean {
     const trimmedLocation = location.trim().replace('..', '');
     return window.location.pathname === trimmedLocation;
+
   }
 }
+
+
+{/* 
+
+  ANGULAR SHORT NOTES ON EVENT BINDING
+
+  So when you shoot a (input) event in angular -- you can bind that event value
+  Say from input component to a function or something 
+  Eg. <input (input)="onInputValue($event)" 
+  Where $event is the event object fired when the input State/Event changes
+  We can now maybe assign that value to another variable, and use for something else
+  :)
+
+*/}
