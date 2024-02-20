@@ -1,8 +1,8 @@
 <div
-  class="w-screen xl:w-fit xl:h-dvh mx-auto xl:mx-5 flex justify-center items-center md:mt-5 xl:mt-0 md:px-5 xl:px-0 pb-5 xl:pb-0 fixed left-0"
+  class="w-screen xl:w-fit xl:h-dvh mx-auto xl:mx-5 flex justify-center items-center md:pt-5 xl:pt-0 md:px-5 xl:px-0 pb-5 xl:pb-0 fixed left-0 bg-darkBlue"
 >
   <div
-    class="bg-semiDarkBlue md:rounded-xl p-4 md:p-6 xl:p-8 h-[95%] flex flex-row w-screen md: xl:w-full xl:flex-col justify-between items-center"
+    class="bg-semiDarkBlue md:rounded-xl p-4 md:p-5 xl:p-6 h-[95%] flex flex-row w-screen md: xl:w-full xl:flex-col justify-between items-center"
   >
     <div>
       <img src="../../../assets/logo.svg" alt="logo" class="fill-pureWhite" />
@@ -14,7 +14,7 @@
         CHANGE SVG COLOR
 
     -->
-    <div class="flex flex-row xl:flex-col gap-6 lg:gap-10">
+    <div class="flex flex-row xl:flex-col gap-6 lg:gap-8">
       @for(nav of navItems; track nav.name){
 
       <a
@@ -22,13 +22,16 @@
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
       >
-        <img
-          [src]="nav.img"
-          alt="logo"
-          class="text-pureWhite"
-          width="20"
-          height="20"
-        />
+        <span
+          class="material-symbols-sharp w-5 h-5 hover:text-redy"
+          [ngClass]="
+            isCurrentLocation(nav.location)
+              ? 'text-pureWhite'
+              : 'text-greyishBlue'
+          "
+        >
+          {{ nav.name }}
+        </span>
       </a>
       }
     </div>

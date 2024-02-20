@@ -14,13 +14,14 @@
       <input
         type="text"
         (input)="search()"
+        [ngModel]="searchData"
         name="searchData"
-        [(ngModel)]="searchData"
-        class="w-full text-pureWhite bg-transparent text-[16px] md:text-lg outline-none border-b border-b-transparent focus:border-b focus:border-pureWhite pb-2 md:pb-4"
+        class="w-full text-pureWhite bg-transparent text-[16px] md:text-lg outline-none border-b border-b-transparent focus:border-b focus:border-greyishBlue pb-1 md:pb-4"
         placeholder="Search for movies or TV series"
       />
     </div>
-    <div class="h-screen">
+    <div class="h-screen font-outfit">
+      <div class="text-xl font-light pt-1 pb-3">Trending</div>
       <app-trending-card [movies]="movie"></app-trending-card>
     </div>
   </div>

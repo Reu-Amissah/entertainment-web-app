@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { Movie } from './Interface/movie';
 
 @Component({
   selector: 'app-root',
@@ -14,15 +15,22 @@ import { RouterModule } from '@angular/router';
 export class AppComponent {
   title = 'jiraiya-sensei';
 
-  movies: any[] = [];
+  movie: Movie[] = [];
+  trending: Movie[] = [];
 
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
     this.dataService.movies$.subscribe({
-      next: (data) => ((this.movies = data), console.log(this.movies)),
+      next: (data) => ((this.movie = data), console.log(this.movie)),
       error: (err) => console.error(err),
       complete: () => console.log('All Movies fetched'),
     });
+
+    this.dataService.getTrendingMovies().subscribe((movies) => {
+      this.trending = movies;
+      console.log(this.trending);
+    });
+
   }
 }

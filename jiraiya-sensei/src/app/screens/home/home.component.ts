@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 import { FormsModule } from '@angular/forms';
 import { TrendingCardComponent } from '../../components/trending-card/trending-card.component';
 import { Movie } from '../../Interface/movie';
+import { TrendingMovies } from '../../services/trendingmovies.service';
 
 @Component({
   selector: 'app-home',
@@ -11,15 +12,18 @@ import { Movie } from '../../Interface/movie';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
-  searchData!: string;
+export class HomeComponent implements OnInit {
+  searchData: string = '';
+  trendingMovie: Movie[] = [];
+
+  constructor(private trendingMovies: TrendingMovies) {}
 
   movie: Movie = {
     title: 'Avatar',
     thumbnail: {
       trending: {
         small: 'trending-small-thumbnail-url',
-        large: 'trending-large-thumbnail-url',
+        large: '../../../assets/trymovie.jpg',
       },
       regular: {
         small: 'regular-small-thumbnail-url',
@@ -33,6 +37,14 @@ export class HomeComponent {
     isBookmarked: false,
     isTrending: true,
   };
+
+  ngOnInit(): void {
+    this.trendingMovies.trending$?.subscribe((movie) => {
+      this.trendingMovie = movie;
+      console.log(this.movie);
+    });
+    // console.log(this.movie)
+  }
 
   search() {
     console.log(this.searchData);

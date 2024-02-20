@@ -1,9 +1,14 @@
-<div class="h-[230px] w-[470px] flex flex-col justify-between">
-  <div>
+<div
+  class="h-[230px] w-[470px] flex flex-col justify-between bg-cover bg-center rounded-md p-6 font-outfit"
+  [ngStyle]="bgImage"
+>
+  <div class="flex justify-end">
     <img src="../../../assets/icon-bookmark-empty.svg" alt="" />
   </div>
   <div>
-    <div>{{ movies.year }} · {{ movies.category }} · {{ movies.rating }}</div>
-    <div>Beyond Earth</div>
+    <div class="text-base font-light">
+      {{ movies.year }} · {{ movies.category }} · {{ movies.rating }}
+    </div>
+    <div class="text-lg font-medium">Beyond Earth</div>
   </div>
 </div>

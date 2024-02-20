@@ -13,24 +13,29 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 export class NavBarComponent {
   navItems: NavItems[] = [
     {
-      name: 'home',
+      name: 'grid_view',
       location: '../home',
       img: '../../../assets/icon-nav-home.svg',
     },
     {
-      name: 'movies',
+      name: 'theaters',
       location: '../movies',
       img: '../../../assets/icon-nav-movies.svg',
     },
     {
-      name: 'series',
+      name: 'live_tv',
       location: '../series',
       img: '../../../assets/icon-nav-tv-series.svg',
     },
     {
-      name: 'bookmarks',
+      name: 'bookmark',
       location: '../bookmarks',
       img: '../../../assets/icon-nav-bookmark.svg',
     },
   ];
+
+  isCurrentLocation(location: string): boolean {
+    const trimmedLocation = location.trim().replace('..', '');
+    return window.location.pathname === trimmedLocation;
+  }
 }
