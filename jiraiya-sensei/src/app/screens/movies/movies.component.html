@@ -18,12 +18,9 @@
         placeholder="Search for movies or TV series"
       />
     </div>
-   
 
-    <div class="font-outfit px-5 xl:pl-0 my-5">
-      <div class="text-[20px] md:text-xl font-light pt-1 pb-3">
-       Movies
-      </div>
+    <div class="font-outfit px-5 xl:pl-0 mb-5">
+      <div class="text-[20px] md:text-xl font-light pt-1 pb-3">Movies</div>
       <div id="scroll" class="flex flex-row flex-wrap justify-between md:gap-4">
         @for (movie of movie; track movie.title) {
 
@@ -33,4 +30,3 @@
     </div>
   </div>
 </div>
-

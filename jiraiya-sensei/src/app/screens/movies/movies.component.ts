@@ -22,9 +22,11 @@ export class MoviesComponent implements OnInit {
     this.movies.getMovies().subscribe((movie) => {
       this.movie = movie;
     });
+
+    this.search()
   }
 
   search() {
-    console.log('hello world');
+    console.log(this.searchData);
   }
 }

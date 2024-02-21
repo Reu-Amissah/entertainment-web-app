@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgModel } from '@angular/forms';
 import { Movie } from '../../Interface/movie';
 import { DataService } from '../../services/data.service';
 import { MovieCardComponent } from '../../components/movie-card/movie-card.component';
@@ -13,7 +13,7 @@ import { MovieCardComponent } from '../../components/movie-card/movie-card.compo
   styleUrl: './series.component.css',
 })
 export class SeriesComponent implements OnInit {
-  searchData: string = '';
+  searchData: string = 'hello';
   movie: Movie[] = [];
 
   constructor(private movies: DataService) {}
@@ -24,7 +24,7 @@ export class SeriesComponent implements OnInit {
     });
   }
 
-  search() {
-    console.log('hello world');
+  search():void {
+    console.log(this.searchData);
   }
 }

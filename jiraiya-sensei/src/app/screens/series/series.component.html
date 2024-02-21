@@ -12,7 +12,7 @@
       <input
         type="text"
         (input)="search()"
-        [ngModel]="searchData"
+        [(ngModel)]="searchData"
         name="searchData"
         class="w-full text-pureWhite bg-transparent text-[16px] md:text-lg outline-none border-b border-b-transparent focus:border-b focus:border-greyishBlue pb-1 md:pb-4"
         placeholder="Search for movies or TV series"
@@ -20,7 +20,7 @@
     </div>
    
 
-    <div class="font-outfit px-5 xl:pl-0 my-5">
+    <div class="font-outfit px-5 xl:pl-0 mb-5">
       <div class="text-[20px] md:text-xl font-light pt-1 pb-3">
        TV Series
       </div>
