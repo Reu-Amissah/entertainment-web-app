@@ -3,46 +3,35 @@ import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 import { FormsModule } from '@angular/forms';
 import { TrendingCardComponent } from '../../components/trending-card/trending-card.component';
 import { Movie } from '../../Interface/movie';
-import { TrendingMovies } from '../../services/trendingmovies.service';
 import { DataService } from '../../services/data.service';
+import { MovieCardComponent } from '../../components/movie-card/movie-card.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavBarComponent, FormsModule, TrendingCardComponent],
+  imports: [
+    NavBarComponent,
+    FormsModule,
+    TrendingCardComponent,
+    MovieCardComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
   searchData: string = '';
   trendingMovie: Movie[] = [];
+  movie: Movie[] = [];
 
-  constructor(private trendingMovies: DataService) {}
-
-  movie: Movie = {
-    title: 'Avatar',
-    thumbnail: {
-      trending: {
-        small: 'trending-small-thumbnail-url',
-        large: '../../../assets/trymovie.jpg',
-      },
-      regular: {
-        small: 'regular-small-thumbnail-url',
-        medium: 'regular-medium-thumbnail-url',
-        large: 'regular-large-thumbnail-url',
-      },
-    },
-    year: 2009,
-    category: 'Science Fiction',
-    rating: 'PG-13',
-    isBookmarked: false,
-    isTrending: true,
-  };
+  constructor(private movies: DataService) {}
 
   ngOnInit(): void {
-    this.trendingMovies.getTrendingMovies().subscribe((movie) => {
+    this.movies.getTrendingMovies().subscribe((movie) => {
       this.trendingMovie = movie;
-      console.log('trending movies: ' + this.movie);
+    });
+
+    this.movies.getRemainingMovies().subscribe((movie) => {
+      this.movie = movie;
     });
   }
 

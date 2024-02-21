@@ -24,7 +24,7 @@ export class DataService {
 
   getRemainingMovies(): Observable<Movie[]> {
     return this.movies$.pipe(
-      map((movies) => movies.filter((movie) => movie.isTrending == false))
+      map((movies) => movies.filter((movie) => !movie.isTrending))
     );
   }
 
