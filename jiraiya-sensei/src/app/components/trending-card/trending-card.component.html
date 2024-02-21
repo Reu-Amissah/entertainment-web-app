@@ -1,14 +1,48 @@
 <div
-  class="h-[230px] w-[470px] flex flex-col justify-between bg-cover bg-center rounded-md p-6 font-outfit"
+  class="h-[230px] w-[470px] bg-cover bg-center rounded-lg font-outfit cursor-pointer"
   [ngStyle]="bgImage"
 >
-  <div class="flex justify-end">
-    <img src="../../../assets/icon-bookmark-empty.svg" alt="" />
-  </div>
-  <div>
-    <div class="text-base font-light">
-      {{ movies.year }} · {{ movies.category }} · {{ movies.rating }}
+  <div
+    id="trend-mother"
+    class="h-full w-full flex flex-col justify-between p-6 hover:bg-black hover:bg-opacity-30"
+  >
+    <div class="flex justify-end">
+      <div
+        id="bookmark-comp"
+        class="w-[32px] h-[32px] rounded-full bg-darkBlue flex justify-center items-center bg-opacity-50 hover:bg-pureWhite"
+      >
+        @if(movies.isBookmarked){
+        <!-- <span class="material-symbols-sharp text-md hover:text-redy m-0">
+          bookmark
+        </span> -->
+
+        }@else {
+        <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z"
+            stroke="#FFF"
+            stroke-width="1.5"
+            fill="none"
+            id="bookmark"
+          />
+        </svg>
+        }
+      </div>
     </div>
-    <div class="text-lg font-medium">Beyond Earth</div>
+    <div>
+      <div class="z-10 flex justify-center mb-4">
+        <div
+          id="play-btn"
+          class="invisible flex justify-center items-center rounded-full bg-pureWhite bg-opacity-35 p-2 gap-1"
+        >
+          <img src="../../../assets/icon-play.svg" alt="play Icon" />
+          <p class="text-md px-3 font-medium">Play</p>
+        </div>
+      </div>
+      <div class="text-base font-light">
+        {{ movies.year }} · {{ movies.category }} · {{ movies.rating }}
+      </div>
+      <div class="text-lg font-medium">{{ movies.title }}</div>
+    </div>
   </div>
 </div>

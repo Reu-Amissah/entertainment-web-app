@@ -1,6 +1,4 @@
-<div
-  class="bg-darkBlue flex flex-col xl:flex-row min-h-screen text-pureWhite font-outfit"
->
+<div class="bg-darkBlue flex flex-col xl:flex-row text-pureWhite font-outfit">
   <app-nav-bar></app-nav-bar>
   <div class="w-full mt-20 md:mt-32 xl:mt-10 xl:ml-36">
     <div
@@ -22,7 +20,16 @@
     </div>
     <div class="h-screen font-outfit">
       <div class="text-xl font-light pt-1 pb-3">Trending</div>
-      <app-trending-card [movies]="movie"></app-trending-card>
+      <div
+        id="scroll"
+        class="overflow-x-auto flex"
+        style="-ms-overflow-style: none"
+      >
+        @for (movie of trendingMovie; track movie.title) {
+
+        <app-trending-card [movies]="movie"></app-trending-card>
+        }
+      </div>
     </div>
   </div>
 </div>

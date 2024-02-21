@@ -13,6 +13,7 @@ export class TrendingCardComponent {
   @Input()
   movies: Movie = {} as Movie;
   bgImage: any = {};
+  isBookmarked: boolean = false;
 
   ngOnInit(): void {
     this.bgImage = {

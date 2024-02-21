@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { TrendingCardComponent } from '../../components/trending-card/trending-card.component';
 import { Movie } from '../../Interface/movie';
 import { TrendingMovies } from '../../services/trendingmovies.service';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
   searchData: string = '';
   trendingMovie: Movie[] = [];
 
-  constructor(private trendingMovies: TrendingMovies) {}
+  constructor(private trendingMovies: DataService) {}
 
   movie: Movie = {
     title: 'Avatar',
@@ -39,11 +40,10 @@ export class HomeComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.trendingMovies.trending$?.subscribe((movie) => {
+    this.trendingMovies.getTrendingMovies().subscribe((movie) => {
       this.trendingMovie = movie;
-      console.log(this.movie);
+      console.log('trending movies: ' + this.movie);
     });
-    // console.log(this.movie)
   }
 
   search() {
