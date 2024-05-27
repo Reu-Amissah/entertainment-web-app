@@ -43,6 +43,7 @@ export class MoviesComponent implements OnInit {
     this.searchData = searchValue;
   }
 
+
   filterMovies(): Movie[] {
     
     if(!this.searchData){
