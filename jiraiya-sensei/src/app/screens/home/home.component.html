@@ -32,7 +32,7 @@
       <div class="text-[20px] md:text-xl font-light pt-1 pb-3">
         Recommended for you
       </div>
-      <div id="scroll" class="flex flex-row flex-wrap justify-between md:gap-4">
+      <div id="scroll" class="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 xl:gap-7 md:gap-4">
         @for (movie of movie; track movie.title) {
 
         <app-movie-card [movies]="movie"></app-movie-card>
